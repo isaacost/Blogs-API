@@ -9,7 +9,7 @@ const userLogin = async ({ email, password }) => {
   );
   if (!exits) return { type: 400, message: 'Invalid fields' };
 
-  const token = JWT.generateToken({ email });
+  const token = JWT.generateToken({ id: exits.id, email });
   return { type: 200, message: { token } };
 };
 
