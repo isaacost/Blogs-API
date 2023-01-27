@@ -54,9 +54,18 @@ const findById = async (id) => {
   return { type: 200, message: user };
 };
 
+const remove = async (id) => {
+  await User.destroy({
+    where: { id },
+  });
+
+  return { type: 204, message: '' };
+};
+
 module.exports = {
   userLogin,
   create,
   findAll,
   findById,
+  remove,
 };
