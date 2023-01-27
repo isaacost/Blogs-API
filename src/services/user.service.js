@@ -37,7 +37,15 @@ const create = async (body) => {
     return { type: 201, message: { token } };
 };
 
+const findAll = async () => {
+  const users = await User.findAll({
+    attributes: { exclude: ['password'] },
+  });
+  return { type: 200, message: users };
+};
+
 module.exports = {
   userLogin,
   create,
+  findAll,
 };
